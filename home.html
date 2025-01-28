@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-translate="dashboard-title">Sanad - لوحة التحكم</title>
+    <link rel="stylesheet" href="home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="loading-screen">
+      <h1>SANAD</h1>
+      <p>Made by Security Champs</p>
+    </div>
+
+    <div class="dashboard">
+      <nav class="top-nav">
+        <div class="nav-buttons right">
+          <button onclick="toggleTheme()" class="theme-btn">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+        <div class="site-name">
+          <h1>SANAD</h1>
+        </div>
+
+        <div class="nav-buttons left">
+          <button class="lang-btn" onclick="toggleLanguage()">
+            <span>AR</span>
+          </button>
+          <button
+            onclick="window.location.href='guides.html'"
+            class="guides-btn"
+          >
+            <i class="fas fa-book"></i>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Main Content Area -->
+      <div class="content-area">
+        <!-- Links Tools Content -->
+        <div class="tool-content links-content">
+          <div class="tool-panel">
+            <div class="tool-header">
+              <h2 data-translate="suspicious-links">كاشف الروابط المشبوهة</h2>
+              <button
+                class="info-btn"
+                onclick="showToolInfo('suspicious-links')"
+              >
+                <i class="fas fa-info-circle"></i>
+              </button>
+            </div>
+            <div class="input-group">
+              <input
+                type="url"
+                data-translate-placeholder="enter-suspicious-link"
+                placeholder="أدخل الرابط المشبوه "
+                class="tool-input"
+              />
+              <button
+                onclick="scanLink()"
+                class="check-btn"
+                data-translate="check-link"
+              >
+                فحص الرابط
+              </button>
+            </div>
+          </div>
+
+          <div class="tool-panel">
+            <div class="tool-header">
+              <h2 data-translate="bank-links">كاشف روابط البنوك</h2>
+              <button class="info-btn" onclick="showToolInfo('bank-links')">
+                <i class="fas fa-info-circle"></i>
+              </button>
+            </div>
+            <div class="input-group">
+              <input
+                type="url"
+                data-translate-placeholder="enter-bank-link"
+                placeholder="أدخل رابط البنك "
+                class="tool-input"
+              />
+              <button
+                class="check-btn"
+                data-translate="verify-link"
+                onclick="verifyBankLink()"
+              >
+                تحقق من الرابط
+              </button>
+            </div>
+          </div>
+          <div class="tool-panel">
+            <div class="tool-header">
+              <h2 data-translate="track-order">تتبع الطلبية</h2>
+              <button class="info-btn" onclick="showToolInfo('track-order')">
+                <i class="fas fa-info-circle"></i>
+              </button>
+            </div>
+            <div class="input-group">
+              <input
+                type="text"
+                data-translate-placeholder="enter-tracking-number"
+                placeholder="أدخل رقم التتبع"
+                class="tool-input"
+              />
+              <button
+                onclick="trackOrder()"
+                class="check-btn"
+                data-translate="track"
+              >
+                تتبع
+              </button>
+            </div>
+          </div>
+
+          <div class="tool-panel">
+            <div class="tool-header">
+              <h2 data-translate="file-checker">فاحص الملفات</h2>
+              <button class="info-btn" onclick="showToolInfo('file-checker')">
+                <i class="fas fa-info-circle"></i>
+              </button>
+            </div>
+            <div class="input-group">
+              <input type="file" class="tool-input file-input" id="fileInput" />
+              <label
+                for="fileInput"
+                class="file-input-label"
+                data-translate="choose-file"
+                >اختر ملف</label
+              >
+              <button
+                class="check-btn"
+                data-translate="check-file"
+                onclick="checkFile()"
+              >
+                فحص الملف
+              </button>
+            </div>
+          </div>
+
+          <div class="tool-panel no-top-margin">
+            <div class="tool-header">
+              <h2 data-translate="dark-web-checker">فاحص الويب المظلم</h2>
+              <button
+                class="info-btn"
+                onclick="showToolInfo('dark-web-checker')"
+              >
+                <i class="fas fa-info-circle"></i>
+              </button>
+            </div>
+            <div class="input-group">
+              <input
+                type="email"
+                data-translate-placeholder="enter-email"
+                placeholder="أدخل البريد الإلكتروني"
+                class="tool-input"
+              />
+              <button
+                onclick="checkDarkWeb()"
+                class="check-btn"
+                data-translate="check"
+              >
+                فحص
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Numbers Tools Content -->
+        <div class="tool-content numbers-content hidden">
+          <div class="tool-panel">
+            <h2 data-translate="verify-official-numbers">
+              التحقق من الأرقام الرسمية
+            </h2>
+            <div class="input-group">
+              <input
+                type="tel"
+                data-translate-placeholder="enter-phone"
+                placeholder="أدخل رقم الهاتف"
+                class="tool-input"
+              />
+              <button class="check-btn" data-translate="verify-number">
+                تحقق من الرقم
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Guides Tools Content -->
+      <div class="tool-content guides-content hidden">
+        <div class="guides-grid">
+          <div class="guide-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3 data-translate="virus-guide">دليل الفيروسات</h3>
+            <button class="view-guide-btn" data-translate="view-guide">
+              عرض الدليل
+            </button>
+          </div>
+          <div class="guide-card">
+            <i class="fas fa-lock"></i>
+            <h3 data-translate="hacked-accounts-guide">
+              دليل الحسابات المخترقة
+            </h3>
+            <button class="view-guide-btn" data-translate="view-guide">
+              عرض الدليل
+            </button>
+          </div>
+          <div class="guide-card">
+            <i class="fas fa-money-bill"></i>
+            <h3 data-translate="bank-security-guide">دليل أمان البنوك</h3>
+            <button class="view-guide-btn" data-translate="view-guide">
+              عرض الدليل
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shop Tools Content -->
+      <!-- Bottom Navigation Bar -->
+      <nav class="bottom-nav">
+        <div class="nav-item" data-category="links">
+          <i class="fas fa-home"></i>
+          <span data-translate="main">الرئيسية</span>
+        </div>
+
+        <div class="nav-item" data-category="security-ai">
+          <i class="fas fa-robot"></i>
+          <span data-translate="security-ai">الذكاء الأمني</span>
+        </div>
+        <div class="nav-item" data-category="numbers">
+          <i class="fas fa-phone"></i>
+          <span data-translate="numbers">الأرقام</span>
+        </div>
+        <div class="nav-item" data-category="shop">
+          <i class="fas fa-store"></i>
+          <span data-translate="shop">المتجر</span>
+        </div>
+      </nav>
+
+      <!-- Tools Containers -->
+      <div class="tools-container links-tools hidden">
+        <div class="tool-item">
+          <i class="fas fa-link"></i>
+          <h3 data-translate="suspicious-links">كاشف الروابط المشبوهة</h3>
+        </div>
+        <div class="tool-item">
+          <i class="fas fa-university"></i>
+          <h3 data-translate="bank-links">كاشف روابط البنوك</h3>
+        </div>
+      </div>
+
+      <div class="tools-container security-ai-tools hidden">
+        <div class="tool-item">
+          <i class="fas fa-robot"></i>
+          <h3 data-translate="security-ai-checker">فاحص الذكاء الأمني</h3>
+        </div>
+      </div>
+
+      <div class="tools-container numbers-tools hidden">
+        <div class="tool-item">
+          <i class="fas fa-phone"></i>
+          <h3 data-translate="verify-official-numbers">
+            التحقق من الأرقام الرسمية
+          </h3>
+        </div>
+        <div class="tool-item">
+          <i class="fas fa-exclamation-triangle"></i>
+          <h3 data-translate="report-suspicious-numbers">
+            الإبلاغ عن الأرقام المشبوهة
+          </h3>
+        </div>
+      </div>
+
+      <div class="tools-container guides-tools hidden">
+        <div class="tool-item">
+          <i class="fas fa-shield-alt"></i>
+          <h3 data-translate="virus-guide">دليل الفيروسات</h3>
+        </div>
+        <div class="tool-item">
+          <i class="fas fa-lock"></i>
+          <h3 data-translate="hacked-accounts-guide">دليل الحسابات المخترقة</h3>
+        </div>
+        <div class="tool-item">
+          <i class="fas fa-money-bill"></i>
+          <h3 data-translate="bank-security-guide">دليل أمان البنوك</h3>
+        </div>
+      </div>
+
+      <div class="tools-container shop-tools hidden">
+        <div class="tool-item">
+          <i class="fas fa-store"></i>
+          <h3 data-translate="shop-checker">التحقق من المتاجر</h3>
+        </div>
+      </div>
+    </div>
+
+    <script src="home.js"></script>
+  </body>
+</html>

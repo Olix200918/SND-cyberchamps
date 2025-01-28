@@ -1,0 +1,929 @@
+/* متغيرات CSS للألوان */
+:root[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #fff;
+    --text-secondary: #888;
+    --accent-color: #245fff;
+    --button-bg: #333;
+    --button-hover: #444;
+    --background-color: #1a1a1a;
+    --anything: #fff;
+}
+
+:root[data-theme="light"] {
+    --bg-primary: #eae9e9;
+    --bg-secondary: #ffffff;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --accent-color: #245fff;
+    --button-bg: #e0e0e0;
+    --button-hover: #d0d0d0;
+    --background-color: #dbdbdb;
+    --anything: #131313;
+}
+
+/* أنماط للوحة التحكم */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.dashboard {
+    min-height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s ease 5s forwards;
+    padding-bottom: 70px;
+}
+.site-name h1 {
+    font-size: 30px;
+    font-weight: 800;   
+}
+.top-nav {
+    background-color: var(--bg-secondary);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.site-name {
+    text-align: center;
+    flex: 1;
+}
+.nav-buttons {
+    min-width: 40px; /* Ensures equal space on both sides */
+}
+.nav-buttons.right {
+    display: flex;
+    justify-content: flex-start;
+}
+.nav-buttons.left {
+    display: flex;
+    justify-content: flex-end;
+}
+.file-input {
+    display: none;
+  }
+  
+  .file-input-label {
+    display: inline-block;
+    padding: 12px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border-radius: 9px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-right: 8px;
+    height: 30px;
+    width: 100%;
+  }
+  
+  .file-input-label:hover {
+    opacity: 0.9;
+  }
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-info i {
+    color: var(--accent-color);
+    font-size: 1.2em;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.theme-btn {
+    background-color: var(--button-bg);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    width: 30px;
+    height: 30px;
+}
+
+.theme-btn:hover {
+    background-color: var(--button-hover);
+}
+
+.logout-btn {
+    background-color: var(--button-bg);
+    color: var(--text-primary);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: var(--button-hover);
+}
+
+.welcome-message {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.welcome-message h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #25d7ff;
+}
+
+.welcome-message p {
+    color: #888;
+    font-size: 1.1em;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 15px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.option-card {
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.option-card i {
+    font-size: 2.5em;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.option-card h3 {
+    color: var(--text-primary);
+    font-size: 1.1em;
+    margin: 0;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 480px) {
+    .top-nav {
+        padding: 8px 12px;
+    }
+    
+    .nav-buttons {
+        gap: 5px;
+    }
+    
+    .theme-btn {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .welcome-message h1 {
+        font-size: 24px;
+    }
+    
+    .welcome-message p {
+        font-size: 1em;
+    }
+    
+    .options-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+    
+    .option-card {
+        padding: 15px;
+    }
+    
+    .option-card i {
+        font-size: 2em;
+    }
+    
+    .option-card h3 {
+        font-size: 1em;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.category-main {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.category-main:hover {
+    background-color: var(--accent-color);
+    opacity: 0.9;
+}
+
+.sub-option {
+    border-left: 4px solid var(--accent-color);
+}
+
+.active-category {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.close-menu-btn {
+    position: sticky;
+    top: 0;
+    right: 20px;
+    z-index: 1000;
+    background-color: rgba(255, 0, 0, 0.411);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 auto 20px;
+    transition: 0.3s;
+}
+
+.close-menu-btn:hover {
+    opacity: 0.9;
+}
+
+.close-menu-btn i {
+    font-size: 1.2em;
+}
+
+.bottom-nav {
+    position: sticky !important;
+    bottom: 0 !important;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--bg-secondary);
+    display: flex !important;
+    justify-content: space-around;
+    padding: 8px 0;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    z-index: 9999 !important;
+    height: 60px;
+    margin: 0;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.nav-item i {
+    font-size: 1.1em;
+    color: var(--text-primary);
+}
+
+.nav-item span {
+    font-size: 0.7em;
+    color: var(--text-secondary);
+}
+
+.nav-item.active {
+    background-color: var(--accent-color);
+}
+
+.nav-item.active i,
+.nav-item.active span {
+    color: white;
+}
+
+.tools-container {
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-secondary);
+    padding: 20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.tool-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tool-item:hover {
+    background-color: var(--button-hover);
+}
+
+.tool-item i {
+    font-size: 1.2em;
+    color: var(--accent-color);
+}
+
+.content-area {
+    padding: 0;
+    margin: 0;
+    max-width: none;
+}
+
+.tool-content {
+    margin: 20px 0;
+}
+
+.tool-panel {
+    background-color: var(--bg-secondary);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: none;
+    margin: 20px;
+}
+
+.tool-panel h2 {
+    color: var(--anything);
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin: 15px 0;
+}
+
+.tool-input {
+    padding: 12px;
+    border: none;
+    border-radius: 0;
+    height: 30px;
+    border-radius: 7px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    width: 100%;
+}
+
+textarea.tool-input {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.check-btn {
+    background-color: var(--accent-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 12px;
+    margin-top: 7px;
+    height: 25px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.check-btn:hover {
+    opacity: 0.9;
+}
+
+.guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2px;
+    padding: 0;
+}
+
+.guide-card {
+    background-color: var(--bg-secondary);
+    padding: 20px;
+    border-radius: 0;
+    text-align: center;
+}
+
+.guide-card i {
+    font-size: 2em;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.view-guide-btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.view-guide-btn:hover {
+    opacity: 0.9;
+}
+
+.lang-btn {
+    background-color: var(--button-bg);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    width: 32px;
+    height: 32px;
+}
+
+.lang-btn:hover {
+    background-color: var(--button-hover);
+}
+
+.lang-btn span {
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+/* Update existing media query for mobile responsiveness */
+@media (max-width: 480px) {
+    .top-nav {
+        padding: 8px 12px;
+    }
+    
+    .nav-buttons {
+        gap: 5px;
+    }
+    
+    .lang-btn {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+}
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 0.5s ease 5s forwards;
+}
+
+.loading-screen h1 {
+    font-size: 4em;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    animation: slideInAndGlow 2s ease;
+    text-shadow: 0 0 10px var(--text-primary);
+    letter-spacing: 8px;
+}
+
+.loading-screen p {
+    color: var(--text-primary);
+    font-size: 1.2em;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpFade 1s ease 2s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        visibility: visible;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes slideInAndGlow {
+    0% {
+        transform: translateY(-50px) scale(0.5);
+        opacity: 0;
+        letter-spacing: 20px;
+    }
+    50% {
+        transform: translateY(0) scale(1.1);
+        opacity: 0.8;
+        letter-spacing: 10px;
+    }
+    75% {
+        transform: scale(0.95);
+        opacity: 0.9;
+        letter-spacing: 8px;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        letter-spacing: 8px;
+    }
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+Add this to hide dashboard initially */
+.dashboard {
+    opacity: 0;
+    animation: fadeIn 1s ease 5s forwards;
+} 
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Add these new styles for the link scanner */
+.scan-result {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.scan-result.safe {
+    background-color: #4caf50;
+    color: white;
+}
+
+.scan-result.warning {
+    background-color: #ff9800;
+    color: white;
+}
+
+.scan-result.unsafe {
+    background-color: #f44336;
+    color: white;
+}
+
+.result-header {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.result-header i {
+    font-size: 1.5em;
+}
+
+.result-header.safe {
+    background-color: #4caf50;
+    color: white;
+}
+
+.result-header.warning {
+    background-color: #ff9800;
+    color: white;
+}
+
+.result-header.unsafe {
+    background-color: #f44336;
+    color: white;
+}
+
+.result-details {
+    padding: 15px;
+}
+
+.result-details p {
+    margin: 5px 0;
+    color: var(--text-primary);
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input[disabled],
+.input-group button[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tool-header {
+    margin-bottom: 15px;
+}
+
+.info-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.info-btn:hover {
+    background-color: var(--button-hover);
+    color: var(--accent-color);
+}
+
+.info-btn i {
+    font-size: 1.2em;
+}
+
+.tool-info {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-secondary);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    z-index: 1000;
+    max-width: 90%;
+    width: 400px;
+}
+
+
+.tool-info h3 {
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+.tool-info p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+.tool-info .close-info {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.guides-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-right: 8px;
+}
+
+.guides-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(36, 95, 255, 0.4);
+    opacity: 0.9;
+}
+
+.guides-btn i {
+    font-size: 1.1em;
+}
+
+/* تحديث حجم الأزرار في الشريط العلوي للتناسق */
+.nav-buttons .theme-btn,
+.nav-buttons .lang-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+}
+
+/* Add these new styles for the shop checker */
+.shop-content {
+    margin-top: 15px;
+}
+
+.shop-result {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.shop-result.verified {
+    background-color: #4caf50;
+    color: white;
+}
+
+.shop-result.unverified {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Update tool panels for mobile */
+.tool-panel {
+    margin: 10px;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+/* Update media query for mobile responsiveness */
+@media (max-width: 480px) {
+    .tool-content {
+        margin: 10px 0;
+    }
+
+    .tool-panel {
+        margin: 10px;
+        padding: 12px;
+    }
+
+    .tool-panel h2 {
+        font-size: 1.2em;
+    }
+
+    .input-group {
+        margin: 10px 0;
+    }
+
+    .tool-input {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .check-btn {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .bottom-nav {
+        display: flex !important;
+        height: 55px;
+        padding: 4px 0;
+        position: fixed !important;
+        bottom: 0 !important;
+    }
+
+    .dashboard {
+        padding-bottom: 65px;
+    }
+
+    .nav-item {
+        padding: 4px 6px;
+    }
+
+    .nav-item i {
+        font-size: 1em;
+    }
+
+    .nav-item span {
+        font-size: 0.65em;
+    }
+
+    /* Adjust top navigation for mobile */
+    .top-nav {
+        padding: 8px 12px;
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-secondary);
+        z-index: 1000;
+    }
+
+    .site-name h1 {
+        font-size: 24px;
+    }
+
+    /* Make tools container more compact on mobile */
+    .tools-container {
+        padding: 10px;
+    }
+
+    .tool-item {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .tool-item h3 {
+        font-size: 0.9em;
+    }
+
+    /* Adjust content area padding */
+    .content-area {
+        padding-bottom: 70px; /* Add space for bottom navigation */
+    }
+}
+
+/* أنماط نتيجة التتبع */
+.tracking-result {
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--bg-primary);
+}
+
+.tracking-result .result-header {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.tracking-result .result-header i {
+    font-size: 1.5em;
+}
+
+.tracking-result .result-details {
+    padding: 15px;
+}
+
+.tracking-result .result-details p {
+    margin: 5px 0;
+    color: var(--text-primary);
+}
+
+/* Update tools container styles to include security-ai */
+.tools-container.security-ai-tools {
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-secondary);
+    padding: 20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}

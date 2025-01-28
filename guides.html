@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأدلة - Sanad</title>
+    <link rel="stylesheet" href="guides.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-buttons right">
+            <button onclick="toggleTheme()" class="theme-btn">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        <div class="site-name">
+            <h1>SANAD</h1>
+        </div>
+        <div class="nav-buttons left">
+            <button class="lang-btn" onclick="toggleLanguage()">
+                <span>EN</span>
+            </button>
+            <button onclick="window.location.href='home.html'" class="back-btn">
+                <i class="fas fa-home"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="guides-container">
+        <div class="guides-grid">
+            <div class="guide-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3 data-translate="virus-guide">دليل الفيروسات</h3>
+                <button class="view-guide-btn" data-translate="view-guide">عرض الدليل</button>
+            </div>
+            <div class="guide-card">
+                <i class="fas fa-lock"></i>
+                <h3 data-translate="hacked-accounts-guide">دليل الحسابات المخترقة</h3>
+                <button class="view-guide-btn" data-translate="view-guide">عرض الدليل</button>
+            </div>
+            <div class="guide-card">
+                <i class="fas fa-money-bill"></i>
+                <h3 data-translate="bank-security-guide">دليل أمان البنوك</h3>
+                <button class="view-guide-btn" data-translate="view-guide">عرض الدليل</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="guides.js"></script>
+</body>
+</html> 
